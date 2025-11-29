@@ -20,7 +20,6 @@ import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, T
 import { Pie, Bar } from 'react-chartjs-2';
 import Layout from '../../components/Layout';
 import { dashboardApi } from '../../services/api';
-import { useAuthStore } from '../../store/authStore';
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -30,7 +29,6 @@ const Dashboard: React.FC = () => {
   const [personalData, setPersonalData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [present] = useIonToast();
-  const { user } = useAuthStore();
 
   const fetchData = async () => {
     try {
@@ -66,7 +64,7 @@ const Dashboard: React.FC = () => {
     fetchData().finally(() => {
       event.detail.complete();
     });
-  };
+  };    
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
