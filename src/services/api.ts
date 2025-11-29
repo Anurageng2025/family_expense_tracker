@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Use environment variable or fallback to localhost
-const API_BASE_URL =  'http://localhost:3000/api';
+const API_BASE_URL =  'familyexpansistrackbackend-production-3b37.up.railway.app'
 
 // Create axios instance
 const api = axios.create({
